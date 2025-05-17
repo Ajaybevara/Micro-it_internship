@@ -2,15 +2,34 @@
 <html>
 <head>
     <title>Edit Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Edit Student</h1>
-    <form method="post">
-        Name: <input type="text" name="name" value="{{ student.name }}" required><br><br>
-        Email: <input type="email" name="email" value="{{ student.email }}" required><br><br>
-        Course: <input type="text" name="course" value="{{ student.course }}" required><br><br>
-        <button type="submit">Update</button>
-    </form>
-    <a href="/">Back to List</a>
+    <div class="container">
+        <h1>Edit Student</h1>
+        <form method="post">
+            <input type="text" name="name" value="{{ student.name }}" required>
+            <input type="text" name="roll" value="{{ student.roll }}" required>
+            <select name="gender" required>
+                <option value="{{ student.gender }}">{{ student.gender }}</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+            <input type="date" name="dob" value="{{ student.dob }}" required>
+            <input type="email" name="email" value="{{ student.email }}" required>
+            <input type="text" name="phone" value="{{ student.phone }}" required>
+            <textarea name="address" required>{{ student.address }}</textarea>
+            <input type="text" name="branch" value="{{ student.branch }}" required>
+            <input type="text" name="year" value="{{ student.year }}" required>
+            <input type="text" name="semester" value="{{ student.semester }}" required>
+            <input type="text" name="section" value="{{ student.section }}" required>
+            <input type="number" name="enrollment_year" value="{{ student.enrollment_year }}" required>
+            <input type="text" name="cgpa" value="{{ student.cgpa }}">
+            <input type="number" name="backlogs" value="{{ student.backlogs }}">
+            <button type="submit">Update Student</button>
+        </form>
+        <a href="{{ url_for('index') }}">← Back to Home</a>
+    </div>
 </body>
 </html>

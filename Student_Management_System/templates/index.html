@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Student Management</title>
+    <title>Student Management System</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Student List</h1>
-    <a href="/add">Add Student</a>
-    <table>
-        <tr>
-            <th>ID</th><th>Name</th><th>Email</th><th>Course</th><th>Actions</th>
-        </tr>
-        {% for student in students %}
-        <tr>
-            <td>{{ student.id }}</td>
-            <td>{{ student.name }}</td>
-            <td>{{ student.email }}</td>
-            <td>{{ student.course }}</td>
-            <td>
-                <a href="/edit/{{ student.id }}">Edit</a> |
-                <a href="/delete/{{ student.id }}" onclick="return confirm('Are you sure?')">Delete</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
+    <div class="container">
+        <h1>Student Management System</h1>
+        <a href="{{ url_for('add') }}">➕ Add New Student</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Roll</th>
+                    <th>Branch</th>
+                    <th>Year</th>
+                    <th>Semester</th>
+                    <th>CGPA</th>
+                    <th>Backlogs</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.roll }}</td>
+                    <td>{{ student.branch }}</td>
+                    <td>{{ student.year }}</td>
+                    <td>{{ student.semester }}</td>
+                    <td>{{ student.cgpa }}</td>
+                    <td>{{ student.backlogs }}</td>
+                    <td>
+                        <a href="{{ url_for('edit', id=student.id) }}">✏️ Edit</a> |
+                        <a href="{{ url_for('delete', id=student.id) }}">❌ Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

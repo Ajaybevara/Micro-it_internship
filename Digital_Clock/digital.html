@@ -3,43 +3,154 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Digital Clock</title>
+  <title>Digital Clock with Toggle</title>
   <style>
+    :root {
+      --bg-color: #0f172a;
+      --container-bg: rgba(255, 255, 255, 0.05);
+      --time-color: #00f0ff;
+      --text-color: #ffffff;
+      --highlight: #facc15;
+    }
+
+    body.light {
+      --bg-color: #f1f5f9;
+      --container-bg: rgba(0, 0, 0, 0.05);
+      --time-color: #0f172a;
+      --text-color: #1e293b;
+      --highlight: #eab308;
+    }
+
     body {
-      background-color: #0f172a;
-      color: #ffffff;
+      background: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      transition: background 0.5s, color 0.5s;
     }
 
-    .clock {
-      font-size: 5rem;
-      background: #1e293b;
+    .clock-container {
+      text-align: center;
+      background: var(--container-bg);
       padding: 40px 60px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      border-radius: 25px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2), 0 0 60px rgba(0, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      transition: background 0.5s;
+    }
+
+    .time {
+      font-size: 5rem;
+      font-weight: bold;
       letter-spacing: 3px;
+      margin-bottom: 10px;
+      color: var(--time-color);
+      text-shadow: 0 0 10px var(--time-color), 0 0 20px var(--time-color);
+    }
+
+    .day, .date {
+      font-size: 1.5rem;
+      margin-top: 5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .day {
+      color: var(--text-color);
+    }
+
+    .date {
+      color: var(--highlight);
+      font-style: italic;
+      text-shadow: 0 0 5px var(--highlight);
+    }
+
+    .toggle-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .toggle-switch input {
+      display: none;
+    }
+
+    .slider {
+      width: 60px;
+      height: 30px;
+      background: #ccc;
+      border-radius: 30px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .slider::before {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: white;
+      top: 3px;
+      left: 3px;
+      transition: transform 0.3s;
+    }
+
+    input:checked + .slider {
+      background: #4ade80;
+    }
+
+    input:checked + .slider::before {
+      transform: translateX(30px);
     }
   </style>
 </head>
 <body>
-  <div class="clock" id="clock">00:00:00</div>
+  <div class="toggle-switch">
+    <label>
+      <input type="checkbox" id="modeToggle">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="clock-container">
+    <div class="time" id="time">00:00:00</div>
+    <div class="day" id="day">Saturday</div>
+    <div class="date" id="date">May 17, 2025</div>
+  </div>
 
   <script>
     function updateClock() {
       const now = new Date();
-      let hours = now.getHours().toString().padStart(2, '0');
-      let minutes = now.getMinutes().toString().padStart(2, '0');
-      let seconds = now.getSeconds().toString().padStart(2, '0');
-      document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+      document.getElementById('time').textContent = `${hours}:${minutes}:${seconds}`;
+
+      const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      document.getElementById('day').textContent = days[now.getDay()];
+
+      const months = ["January", "February", "March", "April", "May", "June",
+                      "July", "August", "September", "October", "November", "December"];
+      document.getElementById('date').textContent =
+        `${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
     }
 
     setInterval(updateClock, 1000);
-    updateClock(); 
+    updateClock();
+
+    // Toggle Light/Dark Mode
+    const toggle = document.getElementById('modeToggle');
+    toggle.addEventListener('change', () => {
+      document.body.classList.toggle('light');
+    });
   </script>
 </body>
 </html>

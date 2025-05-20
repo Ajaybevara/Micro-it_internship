@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bevara Rajasekhar | Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -10,19 +10,44 @@
       darkMode: 'class',
     }
   </script>
+  <style>
+    /* Smooth transition for theme change */
+    body {
+      transition: background-color 0.5s, color 0.5s;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500">
-  <!-- Toggle Button -->
-  <div class="fixed top-4 right-4">
-    <button onclick="document.body.classList.toggle('dark')" class="bg-gray-200 dark:bg-gray-700 p-2 rounded shadow hover:scale-105 transition-transform">🌙 / ☀️</button>
+<body
+  class="bg-gray-100 text-gray-900 transition-colors duration-500"
+  id="body"
+>
+  <!-- Theme toggle button -->
+  <div class="fixed top-4 right-4 z-50">
+    <button
+      id="theme-toggle"
+      class="bg-gray-200 dark:bg-gray-700 p-2 rounded shadow hover:scale-105 transition-transform text-lg"
+      aria-label="Toggle theme"
+      title="Toggle theme: Light / Dark / Mixed"
+    >
+      🌞
+    </button>
   </div>
 
   <!-- Navbar -->
-  <header class="bg-white dark:bg-gray-800 shadow">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold">Bevara Rajasekhar</h1>
+  <header
+    id="header"
+    class="bg-white dark:bg-gray-800 shadow transition-colors duration-500"
+  >
+    <div
+      class="container mx-auto px-4 py-4 flex justify-between items-center max-w-7xl"
+    >
+      <h1
+        class="text-2xl font-bold text-gray-900 dark:text-gray-100 transition-colors duration-500"
+      >
+        Bevara Rajasekhar
+      </h1>
       <nav>
-        <ul class="flex space-x-6">
+        <ul class="flex space-x-6 text-gray-800 dark:text-gray-300 transition-colors duration-500">
           <li><a href="#about" class="hover:text-blue-500">About</a></li>
           <li><a href="#education" class="hover:text-blue-500">Education</a></li>
           <li><a href="#skills" class="hover:text-blue-500">Skills</a></li>
@@ -37,54 +62,381 @@
   </header>
 
   <!-- Hero Section with Background Image -->
-  <section class="text-center py-32 bg-cover bg-center bg-no-repeat" style="background-image: url('a.jpg');">
-    <div class="bg-black bg-opacity-50 py-12 px-4">
-      <h2 class="text-4xl font-bold text-white mb-4 animate-pulse">Aspiring AI & ML Engineer</h2>
-      <p class="text-lg text-white">Passionate about building intelligent solutions and modern web applications.</p>
+  <section
+    class="text-center py-32 bg-cover bg-center bg-no-repeat"
+    style="background-image: url('a.jpg');"
+  >
+    <div class="bg-black bg-opacity-50 py-12 px-4 max-w-4xl mx-auto rounded-lg">
+      <h2
+        class="text-4xl font-bold text-white mb-4 animate-pulse"
+      >
+        Aspiring AI & ML Engineer
+      </h2>
+      <p class="text-lg text-white">
+        Passionate about building intelligent solutions and modern web
+        applications.
+      </p>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="py-16 container mx-auto px-4">
-    <div class="flex justify-end mb-6 space-x-4">
-      <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Download Resume</a>
-      <a href="#" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">Download CV</a>
-    </div>
-    <h3 class="text-3xl font-semibold mb-6">About Me</h3>
-    <div class="md:flex md:space-x-12 items-center">
-      <img src="a.jpg" alt="Profile Photo" class="rounded-full w-64 h-64 object-cover shadow mb-6 md:mb-0">
-      <div>
-        <p class="mb-4">I am <strong>Bevara Rajasekhar</strong>, a dedicated B.Tech student specializing in Artificial Intelligence & Machine Learning at Sri Sivani College of Engineering, Chilakapalem.</p>
-        <p class="mb-4">I have a strong foundation in frontend development (HTML, CSS) and programming (Python, SQL). I am passionate about civic tech, data-driven applications, and rights-focused web solutions. I enjoy learning new technologies and applying them to real-world problems.</p>
-        <p class="mb-4">In addition to my academics, I’ve built multiple web-based applications focused on public services, transparency, and civic engagement. My goal is to contribute to a technologically empowered society through innovation and responsible software development.</p>
+  <section
+    id="about"
+    class="py-16 container mx-auto px-4 max-w-7xl flex flex-col md:flex-row items-center md:items-start md:space-x-12"
+  >
+    <img
+      src="a.jpg"
+      alt="Profile Photo"
+      class="rounded-full w-64 h-64 object-cover shadow mb-8 md:mb-0 flex-shrink-0"
+    />
+    <div class="max-w-xl text-gray-900 dark:text-gray-100 transition-colors duration-500">
+      <div class="mb-6 flex space-x-4 justify-end">
+        <a
+          href="Resume.pdf"
+          class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+          >Download Resume</a
+        >
+        <a
+          href="Resume.pdf"
+          class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
+          >Download CV</a
+        >
       </div>
+      <h3 class="text-3xl font-semibold mb-6">About Me</h3>
+      <p class="mb-4">
+        I am <strong>Bevara Rajasekhar</strong>, a dedicated B.Tech student
+        specializing in Artificial Intelligence & Machine Learning at Sri Sivani
+        College of Engineering, Chilakapalem.
+      </p>
+      <p class="mb-4">
+        I have a strong foundation in frontend development (HTML, CSS) and
+        programming (Python, SQL). I am passionate about civic tech,
+        data-driven applications, and rights-focused web solutions. I enjoy
+        learning new technologies and applying them to real-world problems.
+      </p>
+      <p class="mb-4">
+        In addition to my academics, I’ve built multiple web-based applications
+        focused on public services, transparency, and civic engagement. My goal
+        is to contribute to a technologically empowered society through
+        innovation and responsible software development.
+      </p>
     </div>
   </section>
 
-  <!-- Education Section -->
-  <section id="education" class="py-16 bg-white dark:bg-gray-700 container mx-auto px-4">
-    <h3 class="text-3xl font-semibold mb-12 text-center">Education</h3>
-    <div class="relative border-l-4 border-blue-600 pl-6 space-y-12">
-      <div>
-        <span class="absolute left-0 w-4 h-4 bg-blue-600 rounded-full -translate-x-1/2"></span>
-        <h4 class="text-xl font-bold">B.Tech in Artificial Intelligence & Machine Learning</h4>
+  <!-- Unique Education Section -->
+  <section id="education" class="py-16 container mx-auto px-4 max-w-7xl">
+    <h3
+      class="text-3xl font-semibold mb-10 text-center text-gray-900 dark:text-gray-100 transition-colors duration-500"
+    >
+      Education
+    </h3>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div
+        class="bg-gradient-to-tr from-blue-100 to-blue-300 dark:from-blue-900 dark:to-blue-700 p-6 rounded-xl shadow-md hover:shadow-xl transition-transform hover:scale-105 text-gray-800 dark:text-white"
+      >
+        <div class="flex items-center space-x-4 mb-4">
+          <div class="bg-white dark:bg-gray-800 p-3 rounded-full">
+            <svg
+              class="w-6 h-6 text-blue-600 dark:text-blue-400"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 14l9-5-9-5-9 5 9 5zm0 0v6"
+              />
+            </svg>
+          </div>
+          <h4 class="text-xl font-bold">B.Tech in AI & ML</h4>
+        </div>
         <p>Sri Sivani College of Engineering, Chilakapalem</p>
-        <p class="text-sm text-gray-600 dark:text-gray-400">2022 - Present</p>
+        <p class="text-sm text-gray-700 dark:text-gray-300">2022 - Present</p>
       </div>
-      <div>
-        <span class="absolute left-0 w-4 h-4 bg-blue-600 rounded-full -translate-x-1/2 top-[50%]"></span>
-        <h4 class="text-xl font-bold">Intermediate</h4>
+
+      <div
+        class="bg-gradient-to-tr from-green-100 to-green-300 dark:from-green-900 dark:to-green-700 p-6 rounded-xl shadow-md hover:shadow-xl transition-transform hover:scale-105 text-gray-800 dark:text-white"
+      >
+        <div class="flex items-center space-x-4 mb-4">
+          <div class="bg-white dark:bg-gray-800 p-3 rounded-full">
+            <svg
+              class="w-6 h-6 text-green-600 dark:text-green-400"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 20h9M12 4h9m-9 8h9m-9-8V4a2 2 0 00-2 2v12a2 2 0 002 2z"
+              />
+            </svg>
+          </div>
+          <h4 class="text-xl font-bold">Intermediate</h4>
+        </div>
         <p>A.P. Model School and Junior College, O.V. Peta</p>
-        <p class="text-sm text-gray-600 dark:text-gray-400">2020 - 2022</p>
+        <p class="text-sm text-gray-700 dark:text-gray-300">2020 - 2022</p>
       </div>
-      <div>
-        <span class="absolute left-0 w-4 h-4 bg-blue-600 rounded-full -translate-x-1/2 top-[100%]"></span>
-        <h4 class="text-xl font-bold">10th Class</h4>
+
+      <div
+        class="bg-gradient-to-tr from-purple-100 to-purple-300 dark:from-purple-900 dark:to-purple-700 p-6 rounded-xl shadow-md hover:shadow-xl transition-transform hover:scale-105 text-gray-800 dark:text-white"
+      >
+        <div class="flex items-center space-x-4 mb-4">
+          <div class="bg-white dark:bg-gray-800 p-3 rounded-full">
+            <svg
+              class="w-6 h-6 text-purple-600 dark:text-purple-400"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8 16l-4-4m0 0l4-4m-4 4h12"
+              />
+            </svg>
+          </div>
+          <h4 class="text-xl font-bold">10th Class</h4>
+        </div>
         <p>A.P. Model School, O.V. Peta</p>
-        <p class="text-sm text-gray-600 dark:text-gray-400">2019 - 2020</p>
+        <p class="text-sm text-gray-700 dark:text-gray-300">2019 - 2020</p>
       </div>
     </div>
   </section>
 
+  <!-- Skills Section -->
+  <section
+    id="skills"
+    class="py-16 container mx-auto px-4 max-w-7xl text-gray-900 dark:text-gray-100 transition-colors duration-500"
+  >
+    <h3 class="text-3xl font-semibold mb-10 text-center">Skills</h3>
+    <div class="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+      <div
+        class="bg-white dark:bg-gray-700 rounded-xl p-6 text-center shadow hover:shadow-lg transition"
+      >
+        <h4 class="text-xl font-semibold mb-2">HTML</h4>
+        <p>Advanced</p>
+      </div>
+      <div
+        class="bg-white dark:bg-gray-700 rounded-xl p-6 text-center shadow hover:shadow-lg transition"
+      >
+        <h4 class="text-xl font-semibold mb-2">CSS</h4>
+        <p>Advanced</p>
+      </div>
+      <div
+        class="bg-white dark:bg-gray-700 rounded-xl p-6 text-center shadow hover:shadow-lg transition"
+      >
+        <h4 class="text-xl font-semibold mb-2">Python</h4>
+        <p>Intermediate</p>
+      </div>
+      <div
+        class="bg-white dark:bg-gray-700 rounded-xl p-6 text-center shadow hover:shadow-lg transition"
+      >
+        <h4 class="text-xl font-semibold mb-2">SQL</h4>
+        <p>Intermediate</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section
+    id="projects"
+    class="py-16 container mx-auto px-4 max-w-7xl text-gray-900 dark:text-gray-100 transition-colors duration-500"
+  >
+    <h3 class="text-3xl font-semibold mb-10 text-center">Projects</h3>
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <!-- Project cards example -->
+      <div
+        class="bg-white dark:bg-gray-700 rounded-xl shadow p-6 hover:shadow-xl transition"
+      >
+        <h4 class="font-semibold text-xl mb-2">Civic Education Platform</h4>
+        <p>
+          Web app to explain legal rights and responsibilities with interactive
+          content.
+        </p>
+      </div>
+      <div
+        class="bg-white dark:bg-gray-700 rounded-xl shadow p-6 hover:shadow-xl transition"
+      >
+        <h4 class="font-semibold text-xl mb-2">Public Grievance Portal</h4>
+        <p>
+          Online system to submit, track, and resolve public grievances with
+          transparency.
+        </p>
+      </div>
+      <div
+        class="bg-white dark:bg-gray-700 rounded-xl shadow p-6 hover:shadow-xl transition"
+      >
+        <h4 class="font-semibold text-xl mb-2">Mobile Voting System</h4>
+        <p>
+          Secure online voting system with Aadhaar OTP verification and
+          constituency selection.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Internships Section -->
+  <section
+    id="internships"
+    class="py-16 container mx-auto px-4 max-w-7xl text-gray-900 dark:text-gray-100 transition-colors duration-500"
+  >
+    <h3 class="text-3xl font-semibold mb-10 text-center">Internships</h3>
+    <ul class="max-w-4xl mx-auto list-disc list-inside space-y-3">
+      <li>
+        Software Development Intern at TechCorp, June 2024 - August 2024.
+      </li>
+      <li>
+        Data Science Intern at DataLab, January 2024 - April 2024.
+      </li>
+    </ul>
+  </section>
+
+  <!-- Certifications Section -->
+  <section
+    id="certifications"
+    class="py-16 container mx-auto px-4 max-w-7xl text-gray-900 dark:text-gray-100 transition-colors duration-500"
+  >
+    <h3 class="text-3xl font-semibold mb-10 text-center">Certifications</h3>
+    <ul class="max-w-4xl mx-auto list-disc list-inside space-y-3">
+      <li>Introduction to HTML - Simplilearn</li>
+      <li>Python for Data Science - Coursera</li>
+      <li>Machine Learning Basics - Udemy</li>
+    </ul>
+  </section>
+
+  <!-- Extracurricular Section -->
+  <section
+    id="extracurricular"
+    class="py-16 container mx-auto px-4 max-w-7xl text-gray-900 dark:text-gray-100 transition-colors duration-500"
+  >
+    <h3 class="text-3xl font-semibold mb-10 text-center">
+      Extracurricular Activities
+    </h3>
+    <ul class="max-w-4xl mx-auto list-disc list-inside space-y-3">
+      <li>Volunteered in community tech workshops</li>
+      <li>Active participant in hackathons</li>
+      <li>Member of college coding club</li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section
+    id="contact"
+    class="py-16 container mx-auto px-4 max-w-7xl text-gray-900 dark:text-gray-100 transition-colors duration-500"
+  >
+    <h3 class="text-3xl font-semibold mb-10 text-center">Contact Me</h3>
+    <form
+      class="max-w-xl mx-auto flex flex-col space-y-4"
+      onsubmit="event.preventDefault(); alert('Form submission is disabled in demo.')"
+    >
+      <input
+        type="text"
+        placeholder="Your Name"
+        required
+        class="p-3 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+      />
+      <input
+        type="email"
+        placeholder="Your Email"
+        required
+        class="p-3 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+      />
+      <textarea
+        rows="5"
+        placeholder="Your Message"
+        required
+        class="p-3 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+      ></textarea>
+      <button
+        type="submit"
+        class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded font-semibold transition"
+      >
+        Send Message
+      </button>
+    </form>
+  </section>
+
+  <footer
+    class="bg-white dark:bg-gray-800 text-center py-6 text-gray-700 dark:text-gray-300 transition-colors duration-500"
+  >
+    © 2025 Bevara Rajasekhar. All rights reserved.
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+    const header = document.getElementById('header');
+
+    // Modes cycle order: light -> dark -> mixed -> light ...
+    // mixed = dark header/footer + light body
+
+    function applyTheme(mode) {
+      if (mode === 'light') {
+        document.documentElement.classList.remove('dark');
+        body.classList.remove('mixed-theme');
+        header.classList.remove('mixed-theme');
+        themeToggleBtn.textContent = '🌞';
+        body.classList.remove('bg-gray-900');
+        body.classList.add('bg-gray-100');
+        body.classList.remove('text-white');
+        body.classList.add('text-gray-900');
+      } else if (mode === 'dark') {
+        document.documentElement.classList.add('dark');
+        body.classList.remove('mixed-theme');
+        header.classList.remove('mixed-theme');
+        themeToggleBtn.textContent = '🌙';
+        body.classList.remove('bg-gray-100');
+        body.classList.add('bg-gray-900');
+        body.classList.remove('text-gray-900');
+        body.classList.add('text-white');
+      } else if (mode === 'mixed') {
+        document.documentElement.classList.remove('dark');
+        body.classList.add('mixed-theme');
+        header.classList.add('mixed-theme');
+        themeToggleBtn.textContent = '🌗';
+        body.classList.remove('bg-gray-100');
+        body.classList.remove('bg-gray-900');
+        body.classList.add('bg-white');
+        body.classList.remove('text-gray-900');
+        body.classList.add('text-gray-900');
+      }
+    }
+
+    // Save and load mode from localStorage
+    let currentMode = localStorage.getItem('themeMode') || 'light';
+    applyTheme(currentMode);
+
+    themeToggleBtn.addEventListener('click', () => {
+      if (currentMode === 'light') {
+        currentMode = 'dark';
+      } else if (currentMode === 'dark') {
+        currentMode = 'mixed';
+      } else {
+        currentMode = 'light';
+      }
+      localStorage.setItem('themeMode', currentMode);
+      applyTheme(currentMode);
+    });
+  </script>
+
+  <style>
+    /* Mixed theme styling: dark header/footer + light body */
+    .mixed-theme {
+      background-color: #ffffff !important;
+      color: #1f2937 !important; /* text-gray-900 */
+    }
+
+    header.mixed-theme,
+    footer.mixed-theme {
+      background-color: #1f2937 !important; /* dark bg-gray-800 */
+      color: #d1d5db !important; /* light gray */
+    }
+  </style>
 </body>
 </html>
